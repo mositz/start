@@ -13,14 +13,15 @@ public class ConsumerTest {
 
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]
-                {"classpath*:dubbo-demo-consumer.xml"});
+                {"classpath*:dubbo-demo-annotation.xml"});
+
         context.start();
 
-        TestAction testAction = (TestAction) context.getBean("testAction");
+//        TestAction testAction = (TestAction) context.getBean("testAction");
 
-        for (int i =0;i<100;i++) {
-            testAction.say();
-        }
+        AnnotationAction testAction = (AnnotationAction) context.getBean("annotationAction");
+
+        testAction.say();
 
     }
 }

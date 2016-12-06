@@ -11,7 +11,7 @@ public class MainTest {
 
     public static void main(String[] args) throws IOException {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]
-                            {"classpath*:dubbo-demo-provider2.xml"});
+                            {"classpath*:dubbo-demo-annotation.xml"});
             context.start();
             System.in.read();
     }
