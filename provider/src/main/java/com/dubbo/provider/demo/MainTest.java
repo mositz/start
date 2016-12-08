@@ -1,8 +1,4 @@
 package com.dubbo.provider.demo;
-import javassist.CannotCompileException;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.NotFoundException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.File;
@@ -13,11 +9,10 @@ import java.io.IOException;
  */
 public class MainTest {
 
-    public static void main(String[] args) throws IOException, NotFoundException, CannotCompileException {
+    public static void main(String[] args) throws IOException {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]
-                            {"classpath*:dubbo-demo-provider.xml"});
+                            {"classpath*:dubbo-demo-annotation.xml"});
             context.start();
-
             System.in.read();
     }
 }
