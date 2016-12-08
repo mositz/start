@@ -26,8 +26,10 @@
 	<!-- 使用multicast广播注册中心暴露发现服务地址 -->
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
+	<bean id="listenTest" class="com.dubbo.consumer.demo.ListenerImpl"/>
+
 	<!--<dubbo:reference id="demoService" interface="com.dubbo.api.demo.DemoService" actives="10"/>-->
-	<dubbo:reference id="demoService" interface="com.dubbo.api.demo.DemoService">
+	<dubbo:reference id="demoService" interface="com.dubbo.api.demo.DemoService" loadbalance="leastactive">
 		<dubbo:method name="say" actives="10"/>
 	</dubbo:reference>
 

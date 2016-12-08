@@ -1,6 +1,7 @@
 package com.dubbo.consumer.demo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.ReflectionUtils;
 import scala.collection.Seq;
 
 import java.io.IOException;
@@ -18,9 +19,14 @@ public class ConsumerTest {
 
         TestAction testAction = (TestAction) context.getBean("testAction");
 
-        for (int i =0;i<100;i++) {
-            testAction.say();
-        }
+        Listener listener =(Listener) context.getBean("context");
 
+        listener.befor();
+
+        testAction.say();
+
+        listener.after();
+
+        System.in.read();
     }
 }
